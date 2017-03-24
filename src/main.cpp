@@ -15,11 +15,11 @@ void setup() {
     for (int k = 0; k < 10; k = k + 1) {
         if (k % 2 == 0) {
             digitalWrite(statusLED, HIGH);
-            }
+        }
         else {
             digitalWrite(statusLED, LOW);
-            }
-        delay(250);
+        }
+        delay(100);
         } // for
     } // setup
 
@@ -40,15 +40,15 @@ void sleep() {
     ADCSRA |= _BV(ADEN);                    // ADC on
 
     sei();                                  // Enable interrupts
-    } // sleep
+} // sleep
 
 ISR(PCINT0_vect) {
     // This is called when the interrupt occurs, but I don't need to do anything in it
-    }
+}
 
 void loop() {
     sleep();
     digitalWrite(statusLED, HIGH);
     delay(1000);
     digitalWrite(statusLED, LOW);
-    }
+}
